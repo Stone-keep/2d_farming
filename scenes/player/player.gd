@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var move_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var tool_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/ToolStateMachine/playback")
 
-const SPEED = 300.0
+const SPEED = 150.0
 var direction := Vector2.ZERO
 var can_move := true
 

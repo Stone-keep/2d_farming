@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dcpetuxvases6"]
+
+[ext_resource type="Script" uid="uid://ba016k6wb5nby" path="res://scenes/objects/tree.gd" id="1_5qchx"]
+[ext_resource type="Texture2D" uid="uid://c4nvxvw1wr0ja" path="res://graphics/tilesets/trees.png" id="1_r6wkp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qchx"]
+size = Vector2(12, 22)
+
+[node name="Tree" type="StaticBody2D" unique_id=1025029467]
+y_sort_enabled = true
+collision_mask = 0
+script = ExtResource("1_5qchx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=296838427]
+texture = ExtResource("1_r6wkp")
+hframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=268211834]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_5qchx")
