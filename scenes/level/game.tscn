@@ -891,30 +891,113 @@ tile_set = SubResource("TileSet_pl0c8")
 tile_set = SubResource("TileSet_fq6ga")
 
 [node name="HillsLayer" type="TileMapLayer" parent="Layers" unique_id=1385043732]
-tile_map_data = PackedByteArray("AADy/+7/AAAAAAAAAADy/+//AAAAAAEAAADy//D/AAAAAAIAAADz/+7/AAABAAAAAADz/+//AAABAAEAAADz//D/AAABAAIAAAD0/+7/AAABAAAAAAD0/+//AAABAAEAAAD0//D/AAABAAIAAAD1/+7/AAABAAAAAAD1/+//AAABAAEAAAD2/+7/AAABAAAAAAD2/+//AAABAAEAAAD3/+7/AAABAAAAAAD3/+//AAABAAEAAAD4/+7/AAACAAAAAAD4/+//AAACAAEAAAD4//D/AAACAAEAAAD4//H/AAACAAEAAAD4//L/AAACAAIAAAD3//L/AAABAAIAAAD2//L/AAABAAIAAAD1//L/AAAAAAIAAAD1//H/AAAAAAEAAAD1//D/AAAEAAAAAAD2//D/AAABAAEAAAD2//H/AAABAAEAAAD3//H/AAABAAEAAAD3//D/AAABAAEAAAA=")
+tile_map_data = PackedByteArray("AADy/+7/AAAAAAAAAADy/+//AAAAAAEAAADy//D/AAAAAAIAAADz/+7/AAABAAAAAADz/+//AAABAAEAAADz//D/AAABAAIAAAD0/+7/AAABAAAAAAD0/+//AAABAAEAAAD0//D/AAABAAIAAAD1/+7/AAABAAAAAAD1/+//AAABAAEAAAD2/+7/AAABAAAAAAD2/+//AAABAAEAAAD3/+7/AAABAAAAAAD3/+//AAABAAEAAAD4/+7/AAACAAAAAAD4/+//AAACAAEAAAD4//D/AAACAAEAAAD4//H/AAACAAEAAAD4//L/AAACAAIAAAD3//L/AAADAAIAAAD2//L/AAABAAIAAAD1//L/AAAAAAIAAAD1//H/AAAAAAEAAAD1//D/AAAEAAAAAAD2//D/AAABAAEAAAD2//H/AAABAAEAAAD3//H/AAABAAEAAAD3//D/AAABAAEAAAAGAAYAAAADAAIAAAAHAAYAAAACAAIAAAAHAAUAAAACAAEAAAAHAAQAAAACAAEAAAAHAAMAAAADAAAAAAAIAAMAAAABAAIAAAAJAAMAAAACAAIAAAAJAAIAAAACAAEAAAAJAAEAAAACAAEAAAAIAAEAAAABAAEAAAAHAAEAAAABAAEAAAAGAAEAAAABAAEAAAAFAAEAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAAEAAQAAAABAAIAAAAFAAQAAAAEAAAAAAAFAAUAAAAAAAEAAAAFAAYAAAAAAAIAAAAFAAMAAAABAAEAAAAFAAIAAAABAAEAAAAGAAIAAAABAAEAAAAHAAIAAAABAAEAAAAIAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAADy////AAAAAAEAAADy/wAAAAAAAAIAAADz////AAABAAEAAADz/wAAAAADAAIAAAD0////AAABAAEAAAD0/wAAAAABAAIAAAD1////AAABAAEAAAD1/wAAAAABAAIAAAD2////AAACAAEAAAD2/wAAAAACAAIAAADw//z/AAAAAAAAAADw//3/AAAAAAEAAADw//7/AAAAAAIAAADx//z/AAABAAAAAADx//3/AAABAAEAAADx//7/AAABAAIAAADy//z/AAABAAAAAADy//3/AAABAAEAAADy//7/AAAEAAAAAADz//z/AAABAAAAAADz//3/AAABAAEAAADz//7/AAABAAEAAAD0//z/AAACAAAAAAD0//3/AAADAAEAAAD0//7/AAABAAEAAAD1//3/AAABAAAAAAD1//7/AAABAAEAAAD2//3/AAACAAAAAAD2//7/AAACAAEAAAADAAQAAAABAAIAAAACAAQAAAABAAIAAAAAAAIAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAAJAAAAAAACAAAAAAAIAAAAAAABAAAAAAAHAAAAAAADAAEAAAAGAAAAAAABAAEAAAAFAAAAAAABAAEAAAAEAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAABAAEAAAACAAMAAAABAAEAAAADAAMAAAABAAEAAAABAAQAAAAAAAIAAAABAAMAAAADAAAAABAAAAMAAAAAAAIAAAAHAP//AAACAAAAAAAGAP//AAABAAAAAAAFAP//AAABAAAAAAAEAP//AAABAAAAAAADAP//AAADAAEAAAADAP7/AAACAAAAAAACAP7/AAABAAAAAAABAP7/AAABAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAEAAAABAP//AAABAAEAAAACAP//AAABAAEAAAA=")
 tile_set = SubResource("TileSet_ig4jx")
 
 [node name="Objects" type="Node2D" parent="." unique_id=378653870]
 y_sort_enabled = true
 
 [node name="Player" parent="Objects" unique_id=315438215 instance=ExtResource("1_e6yxx")]
+position = Vector2(-30, -15)
 
-[node name="Trees" type="Node2D" parent="Objects" unique_id=969118760]
+[node name="Trees" type="Node2D" parent="Objects" unique_id=1129439792]
+y_sort_enabled = true
 
 [node name="Tree" parent="Objects/Trees" unique_id=1857115497 instance=ExtResource("6_fq6ga")]
-position = Vector2(16, 49)
+position = Vector2(-228, -49)
 
 [node name="Tree2" parent="Objects/Trees" unique_id=1025029467 instance=ExtResource("6_fq6ga")]
-position = Vector2(-29, 37)
+position = Vector2(-201, -45)
 
 [node name="Tree3" parent="Objects/Trees" unique_id=2066611875 instance=ExtResource("6_fq6ga")]
-position = Vector2(-73, 72)
+position = Vector2(-175, -25)
 
 [node name="Tree4" parent="Objects/Trees" unique_id=1945866952 instance=ExtResource("6_fq6ga")]
-position = Vector2(-103, 45)
+position = Vector2(129, 17)
 
 [node name="Tree5" parent="Objects/Trees" unique_id=619426870 instance=ExtResource("6_fq6ga")]
-position = Vector2(41, 18)
+position = Vector2(94, -3)
 
 [node name="Tree6" parent="Objects/Trees" unique_id=1493635568 instance=ExtResource("6_fq6ga")]
-position = Vector2(84, 34)
+position = Vector2(32, -18)
+
+[node name="Tree7" parent="Objects/Trees" unique_id=773402575 instance=ExtResource("6_fq6ga")]
+position = Vector2(30, 25)
+
+[node name="Tree8" parent="Objects/Trees" unique_id=266258496 instance=ExtResource("6_fq6ga")]
+position = Vector2(52, 2)
+
+[node name="Tree9" parent="Objects/Trees" unique_id=1799092865 instance=ExtResource("6_fq6ga")]
+position = Vector2(61, 41)
+
+[node name="Tree10" parent="Objects/Trees" unique_id=1135871602 instance=ExtResource("6_fq6ga")]
+position = Vector2(84, 20)
+
+[node name="Tree11" parent="Objects/Trees" unique_id=357246067 instance=ExtResource("6_fq6ga")]
+position = Vector2(-250, -260)
+
+[node name="Tree28" parent="Objects/Trees" unique_id=956486695 instance=ExtResource("6_fq6ga")]
+position = Vector2(-215, -197)
+
+[node name="Tree12" parent="Objects/Trees" unique_id=1084058854 instance=ExtResource("6_fq6ga")]
+position = Vector2(-77, -147)
+
+[node name="Tree13" parent="Objects/Trees" unique_id=285018517 instance=ExtResource("6_fq6ga")]
+position = Vector2(15, -109)
+
+[node name="Tree30" parent="Objects/Trees" unique_id=1177482143 instance=ExtResource("6_fq6ga")]
+position = Vector2(129, -91)
+
+[node name="Tree31" parent="Objects/Trees" unique_id=1448793349 instance=ExtResource("6_fq6ga")]
+position = Vector2(195, -17)
+
+[node name="Tree32" parent="Objects/Trees" unique_id=2135221304 instance=ExtResource("6_fq6ga")]
+position = Vector2(-116, -74)
+
+[node name="Tree29" parent="Objects/Trees" unique_id=1006151273 instance=ExtResource("6_fq6ga")]
+position = Vector2(11, -152)
+
+[node name="Tree14" parent="Objects/Trees" unique_id=256896885 instance=ExtResource("6_fq6ga")]
+position = Vector2(-51, -129)
+
+[node name="Tree15" parent="Objects/Trees" unique_id=215796552 instance=ExtResource("6_fq6ga")]
+position = Vector2(-235, -109)
+
+[node name="Tree16" parent="Objects/Trees" unique_id=98305231 instance=ExtResource("6_fq6ga")]
+position = Vector2(-146, -278)
+
+[node name="Tree17" parent="Objects/Trees" unique_id=815311852 instance=ExtResource("6_fq6ga")]
+position = Vector2(-146, 55)
+
+[node name="Tree18" parent="Objects/Trees" unique_id=71091428 instance=ExtResource("6_fq6ga")]
+position = Vector2(-124, 88)
+
+[node name="Tree19" parent="Objects/Trees" unique_id=555973650 instance=ExtResource("6_fq6ga")]
+position = Vector2(-240, 15)
+
+[node name="Tree20" parent="Objects/Trees" unique_id=25089179 instance=ExtResource("6_fq6ga")]
+position = Vector2(-74, 48)
+
+[node name="Tree21" parent="Objects/Trees" unique_id=1012444696 instance=ExtResource("6_fq6ga")]
+position = Vector2(-113, 60)
+
+[node name="Tree23" parent="Objects/Trees" unique_id=828055067 instance=ExtResource("6_fq6ga")]
+position = Vector2(-43, -153)
+
+[node name="Tree24" parent="Objects/Trees" unique_id=518359498 instance=ExtResource("6_fq6ga")]
+position = Vector2(-83, 102)
+
+[node name="Tree25" parent="Objects/Trees" unique_id=1971382634 instance=ExtResource("6_fq6ga")]
+position = Vector2(-3, -131)
+
+[node name="Tree26" parent="Objects/Trees" unique_id=467839367 instance=ExtResource("6_fq6ga")]
+position = Vector2(32, -131)
+
+[node name="Tree27" parent="Objects/Trees" unique_id=313782951 instance=ExtResource("6_fq6ga")]
+position = Vector2(-28, -136)
+
+[node name="Tree22" parent="Objects/Trees" unique_id=1005462538 instance=ExtResource("6_fq6ga")]
+position = Vector2(-58, 77)
+
+[node name="Tree33" parent="Objects/Trees" unique_id=207396542 instance=ExtResource("6_fq6ga")]
+position = Vector2(-29, -56)

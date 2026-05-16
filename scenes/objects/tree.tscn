@@ -4,18 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://c4nvxvw1wr0ja" path="res://graphics/tilesets/trees.png" id="1_r6wkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qchx"]
-size = Vector2(12, 22)
+size = Vector2(8, 17)
 
 [node name="Tree" type="StaticBody2D" unique_id=1025029467]
-y_sort_enabled = true
 collision_mask = 0
 script = ExtResource("1_5qchx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=296838427]
+position = Vector2(0, -12)
 texture = ExtResource("1_r6wkp")
 hframes = 2
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=268211834]
-position = Vector2(0, 2)
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_5qchx")
