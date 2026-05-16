@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 var direction := Vector2.ZERO
+var can_move := true
 
 enum Tools {AXE, HOE, WATER_CAN}
 var current_tool := Tools.AXE
@@ -15,8 +16,9 @@ const tool_connection = {
 }
 
 func _physics_process(_delta: float) -> void:
-	get_input()
-	velocity = direction * SPEED
+	if can_move:
+		get_input()
+	velocity = direction * SPEED * int(can_move)
 	move_and_slide()
 	animation()
 
@@ -27,6 +29,7 @@ func get_input() -> void:
 	if Input.is_action_just_pressed("action"):
 		tool_state_machine.travel(tool_connection[current_tool])
 		$AnimationTree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		can_move = false
 
 	if Input.is_action_just_pressed("tool_backward") or Input.is_action_just_pressed("tool_forward"):
 		var tool_direction = Input.get_axis("tool_backward", "tool_forward") as int
@@ -45,3 +48,7 @@ func animation() -> void:
 
 	else:
 		move_state_machine.travel("idle")
+
+
+func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
+	can_move = true

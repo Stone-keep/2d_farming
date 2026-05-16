@@ -918,7 +918,7 @@ transitions = ["Start", "hoe", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-348, -342)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6eyoc"]
-graph_offset = Vector2(-305.15027, -200.31369)
+graph_offset = Vector2(-302.15027, -277.3137)
 nodes/output/position = Vector2(1180, 40)
 nodes/ToolStateMachine/node = SubResource("AnimationNodeStateMachine_vwwfy")
 nodes/ToolStateMachine/position = Vector2(420, 280)
@@ -957,3 +957,5 @@ parameters/OneShot/internal_active = false
 parameters/OneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=963655763]
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
