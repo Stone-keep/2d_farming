@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf0yuue48pk6v"]
+[gd_scene format=3 uid="uid://bf0yuue48pk6v"]
 
 [ext_resource type="PackedScene" uid="uid://ca106qafnt25o" path="res://scenes/player/player.tscn" id="1_e6yxx"]
+[ext_resource type="Script" uid="uid://bb0okp2wfponp" path="res://scenes/level/game.gd" id="1_pl0c8"]
+[ext_resource type="Texture2D" uid="uid://dmrddtd4ybheu" path="res://icon.svg" id="2_dt6h4"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=2097362230]
+script = ExtResource("1_pl0c8")
 
-[node name="Objects" type="Node2D" parent="."]
+[node name="Icon" type="Sprite2D" parent="." unique_id=1410232835]
+position = Vector2(3, 7)
+texture = ExtResource("2_dt6h4")
+
+[node name="Objects" type="Node2D" parent="." unique_id=378653870]
 y_sort_enabled = true
 
-[node name="Player" parent="Objects" instance=ExtResource("1_e6yxx")]
+[node name="Player" parent="Objects" unique_id=315438215 instance=ExtResource("1_e6yxx")]
