@@ -16,10 +16,11 @@ const tool_connection = {
 	Tools.HOE: "hoe",
 	Tools.WATER_CAN: "water"
 }
-
-
 signal tool_use(tool: Tools, pos: Vector2)
 
+enum Seeds {CORN, TOMATO, PUMPKIN}
+var current_seed := Seeds.CORN
+signal seed_use(seed: Seeds, pos: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -41,7 +42,11 @@ func get_input() -> void:
 	if Input.is_action_just_pressed("tool_backward") or Input.is_action_just_pressed("tool_forward"):
 		var tool_direction = Input.get_axis("tool_backward", "tool_forward") as int
 		current_tool = posmod(current_tool + tool_direction, Tools.size()) as Tools
-
+	if Input.is_action_just_pressed("seed_toggle"):
+		current_seed = posmod(current_seed + 1, Seeds.size()) as Seeds
+		print(current_seed)
+	if Input.is_action_just_pressed("plant"):
+		plant_seed()
 
 func animation() -> void:
 	if direction:
@@ -57,6 +62,13 @@ func animation() -> void:
 
 func use_tool():
 	tool_use.emit(current_tool, $ToolOrigin.global_position + last_direction * tool_direction_offset)
+
+func plant_seed():
+	can_move = false
+	direction = Vector2.ZERO
+	seed_use.emit(current_seed, $ToolOrigin.global_position + last_direction * tool_direction_offset)
+	await get_tree().create_timer(0.5).timeout
+	can_move = true
 
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	can_move = true
