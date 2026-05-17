@@ -5,8 +5,10 @@ extends Node2D
 @onready var soil_layer = $Layers/SoilLayer
 @onready var soil_water_layer = $Layers/SoilWaterLayer
 
+var plant_scene := preload("res://scenes/objects/plant.tscn")
+
 func _on_player_tool_use(tool: int, pos: Vector2) -> void:
-	var grid_pos = soil_layer.local_to_map(soil_layer.to_local(pos))
+	var grid_pos = grass_layer.local_to_map(grass_layer.to_local(pos))
 	if tool == player.Tools.HOE:
 		var cell = grass_layer.get_cell_tile_data(grid_pos) as TileData
 		if cell and cell.get_custom_data("usable"):
@@ -20,3 +22,16 @@ func _on_player_tool_use(tool: int, pos: Vector2) -> void:
 		if cell:
 			var watered_tiles = [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
 			soil_water_layer.set_cell(grid_pos, 0, watered_tiles.pick_random())
+			
+
+
+func _on_player_seed_use(seed_to_plant: int, pos: Vector2) -> void:
+	var grid_pos = grass_layer.local_to_map(grass_layer.to_local(pos))
+	var cell = soil_layer.get_cell_tile_data(grid_pos) as TileData
+	if cell:
+		var plant_pos = Vector2(grid_pos.x * 16 + 8, grid_pos.y * 16 - 4)
+		var plant = plant_scene.instantiate() as StaticBody2D
+		plant.setup(seed_to_plant, grid_pos)
+		$Objects/Plants.add_child(plant)
+		plant.position = plant_pos
+		print(grid_pos)

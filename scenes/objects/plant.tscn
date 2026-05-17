@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b1agrg4w7n85f"]
+
+[ext_resource type="Script" uid="uid://cxofmapxsjee8" path="res://scenes/objects/plant.gd" id="1_fvfks"]
+[ext_resource type="Texture2D" uid="uid://lcymer2isb2i" path="res://graphics/plants/corn.png" id="1_re4db"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_re4db"]
+size = Vector2(7, 10)
+
+[node name="Plant" type="StaticBody2D" unique_id=1020100607]
+script = ExtResource("1_fvfks")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=57179164]
+texture = ExtResource("1_re4db")
+hframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124260299]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_re4db")

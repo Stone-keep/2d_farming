@@ -3,7 +3,7 @@ extends CharacterBody2D
 @onready var move_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var tool_state_machine: AnimationNodeStateMachinePlayback = $AnimationTree.get("parameters/ToolStateMachine/playback")
 
-const SPEED = 150.0
+const SPEED = 100.0
 var direction := Vector2.ZERO
 var last_direction := Vector2.ZERO
 var can_move := true
@@ -18,9 +18,8 @@ const tool_connection = {
 }
 signal tool_use(tool: Tools, pos: Vector2)
 
-enum Seeds {CORN, TOMATO, PUMPKIN}
-var current_seed := Seeds.CORN
-signal seed_use(seed: Seeds, pos: Vector2)
+var current_seed := Global.Seeds.CORN
+signal seed_use(seed_to_plant: Global.Seeds, pos: Vector2)
 
 func _physics_process(_delta: float) -> void:
 	if can_move:
@@ -43,7 +42,7 @@ func get_input() -> void:
 		var tool_direction = Input.get_axis("tool_backward", "tool_forward") as int
 		current_tool = posmod(current_tool + tool_direction, Tools.size()) as Tools
 	if Input.is_action_just_pressed("seed_toggle"):
-		current_seed = posmod(current_seed + 1, Seeds.size()) as Seeds
+		current_seed = posmod(current_seed + 1, Global.Seeds.size()) as Global.Seeds
 		print(current_seed)
 	if Input.is_action_just_pressed("plant"):
 		plant_seed()

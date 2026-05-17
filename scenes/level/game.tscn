@@ -1054,4 +1054,8 @@ position = Vector2(-58, 77)
 [node name="Tree33" parent="Objects/Trees" unique_id=207396542 instance=ExtResource("6_fq6ga")]
 position = Vector2(-29, -56)
 
+[node name="Plants" type="Node2D" parent="Objects" unique_id=1463313100]
+y_sort_enabled = true
+
+[connection signal="seed_use" from="Objects/Player" to="." method="_on_player_seed_use"]
 [connection signal="tool_use" from="Objects/Player" to="." method="_on_player_tool_use"]
