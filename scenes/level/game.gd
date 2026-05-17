@@ -7,6 +7,14 @@ extends Node2D
 
 var plant_scene := preload("res://scenes/objects/plant.tscn")
 
+func _ready() -> void:
+	day_night_cycle()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("ui_focus_next"):
+		level_reset()
+		
+
 func _on_player_tool_use(tool: int, pos: Vector2) -> void:
 	var grid_pos = grass_layer.local_to_map(grass_layer.to_local(pos))
 	if tool == player.Tools.HOE:
@@ -35,3 +43,42 @@ func _on_player_seed_use(seed_to_plant: int, pos: Vector2) -> void:
 		$Objects/Plants.add_child(plant)
 		plant.position = plant_pos
 		print(grid_pos)
+
+
+func day_night_cycle() -> void:
+	var tween = create_tween().set_loops()
+
+	tween.tween_property($CanvasModulate, "color", Color.WHITE, 0.0)
+	tween.tween_interval(30.0)
+
+	tween.tween_property($CanvasModulate, "color", Color(1.0, 0.82, 0.62), 10.0)
+	tween.tween_interval(10.0)
+
+	tween.tween_property($CanvasModulate, "color", Color(0.25, 0.35, 0.6), 10.0)
+	tween.tween_interval(5.0)
+
+	tween.tween_callback(lock_player_movement)
+	tween.tween_property($DayTransition/ColorRect, "modulate:a", 1.0, 2.0)
+
+	tween.tween_callback(level_reset)
+	tween.tween_property($DayTransition/Label, "modulate:a", 1.0, 1.0)
+	tween.tween_interval(1.0)
+	tween.tween_property($DayTransition/Label, "modulate:a", 0.0, 1.0)
+
+	tween.tween_property($CanvasModulate, "color", Color(0.65, 0.78, 1.0), 0.0)
+	tween.tween_property($DayTransition/ColorRect, "modulate:a", 0.0, 2.0)
+	tween.tween_callback(unlock_player_movement)
+
+	tween.tween_property($CanvasModulate, "color", Color.WHITE, 10.0)
+
+
+func lock_player_movement() -> void:
+	player.can_move = false
+
+
+func unlock_player_movement() -> void:
+	player.can_move = true
+
+
+func level_reset():
+	print("new day")
