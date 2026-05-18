@@ -1265,7 +1265,7 @@ stream = ExtResource("4_p47bc")
 volume_db = -10.0
 
 [node name="StepSoundTimer" type="Timer" parent="StepSound" unique_id=866793066]
-wait_time = 0.5
+wait_time = 0.45
 one_shot = true
 
 [node name="WaterCanSound" type="AudioStreamPlayer2D" parent="." unique_id=1892597093]

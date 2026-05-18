@@ -7,6 +7,7 @@ const SPEED = 100.0
 var direction := Vector2.ZERO
 var last_direction := Vector2.ZERO
 var can_move := true
+var was_moving := false
 
 enum Tools {AXE, HOE, WATER_CAN}
 var tool_direction_offset := 20
@@ -25,11 +26,8 @@ func _physics_process(_delta: float) -> void:
 	if can_move:
 		get_input()
 	if direction:
-		last_direction = direction
-		if $StepSound/StepSoundTimer.is_stopped():
-			$StepSound/StepSoundTimer.start()
-	else:
-		$StepSound.stop()
+		last_direction = direction	
+	handle_step_sound()
 	velocity = direction * SPEED * int(can_move)
 	move_and_slide()
 	animation()
@@ -75,6 +73,17 @@ func plant_seed():
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	can_move = true
 
+func handle_step_sound() -> void:
+	var is_moving := direction != Vector2.ZERO and can_move
+	if is_moving and not was_moving:
+		$StepSound.play()
+		$StepSound/StepSoundTimer.start()
+	elif not is_moving:
+		$StepSound.stop()
+		$StepSound/StepSoundTimer.stop()
+	was_moving = is_moving
 
 func _on_step_sound_timer_timeout() -> void:
-	$StepSound.play()
+	if direction != Vector2.ZERO and can_move:
+		$StepSound.play()
+		$StepSound/StepSoundTimer.start()

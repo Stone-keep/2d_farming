@@ -1,16 +1,23 @@
 extends Node2D
 
+@export var daytime_gradient: Gradient
+
 @onready var player = $Objects/Player
 @onready var grass_layer = $Layers/GrassLayer
 @onready var soil_layer = $Layers/SoilLayer
 @onready var soil_water_layer = $Layers/SoilWaterLayer
+@onready var day_timer = $DayTimer
 
 var plant_scene := preload("res://scenes/objects/plant.tscn")
 
 func _ready() -> void:
-	day_night_cycle()
+	$CanvasModulate.color = daytime_gradient.sample(0.0)
+	day_timer.timeout.connect(start_day_transition)
+	day_timer.start()
 
 func _process(_delta: float) -> void:
+	if not day_timer.is_stopped():
+		$CanvasModulate.color = daytime_gradient.sample(get_day_progress())
 	if Input.is_action_just_pressed("ui_focus_next"):
 		level_reset()
 		
@@ -43,18 +50,13 @@ func _on_player_seed_use(seed_to_plant: int, pos: Vector2) -> void:
 		plant.position = plant_pos
 
 
-func day_night_cycle() -> void:
-	var tween = create_tween().set_loops()
+func get_day_progress() -> float:
+	return 1.0 - day_timer.time_left / day_timer.wait_time
 
-	tween.tween_property($CanvasModulate, "color", Color.WHITE, 0.0)
-	tween.tween_interval(30.0)
 
-	tween.tween_property($CanvasModulate, "color", Color(1.0, 0.82, 0.62), 10.0)
-	tween.tween_interval(10.0)
-
-	tween.tween_property($CanvasModulate, "color", Color(0.25, 0.35, 0.6), 10.0)
-	tween.tween_interval(5.0)
-
+func start_day_transition() -> void:
+	day_timer.stop()
+	var tween = create_tween()
 	tween.tween_callback(lock_player_movement)
 	tween.tween_property($DayTransition/ColorRect, "modulate:a", 1.0, 2.0)
 
@@ -63,11 +65,10 @@ func day_night_cycle() -> void:
 	tween.tween_interval(1.0)
 	tween.tween_property($DayTransition/Label, "modulate:a", 0.0, 1.0)
 
-	tween.tween_property($CanvasModulate, "color", Color(0.65, 0.78, 1.0), 0.0)
+	tween.tween_callback(reset_day_tint)
 	tween.tween_property($DayTransition/ColorRect, "modulate:a", 0.0, 2.0)
 	tween.tween_callback(unlock_player_movement)
-
-	tween.tween_property($CanvasModulate, "color", Color.WHITE, 10.0)
+	tween.tween_callback(start_day_timer)
 
 func lock_player_movement() -> void:
 	player.can_move = false
@@ -75,6 +76,14 @@ func lock_player_movement() -> void:
 
 func unlock_player_movement() -> void:
 	player.can_move = true
+
+
+func reset_day_tint() -> void:
+	$CanvasModulate.color = daytime_gradient.sample(0.0)
+
+
+func start_day_timer() -> void:
+	day_timer.start()
 
 func level_reset():
 	Global.day += 1

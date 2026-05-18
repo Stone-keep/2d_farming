@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dcpetuxvases6" path="res://scenes/objects/tree.tscn" id="6_fq6ga"]
 [ext_resource type="AudioStream" uid="uid://7a4rv3t3jhq3" path="res://audio/music.mp3" id="9_ig4jx"]
 
+[sub_resource type="Gradient" id="Gradient_daytime"]
+offsets = PackedFloat32Array(0, 0.153846, 0.461538, 0.615385, 0.769231, 0.923077, 1)
+colors = PackedColorArray(0.65, 0.78, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.82, 0.62, 1, 1, 0.82, 0.62, 1, 0.25, 0.35, 0.6, 1, 0.25, 0.35, 0.6, 1)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fq6ga"]
 texture = ExtResource("2_qrcxb")
 0:0/animation_columns = 4
@@ -926,8 +930,13 @@ sources/0 = SubResource("TileSetAtlasSource_3ny2s")
 
 [node name="Game" type="Node2D" unique_id=2097362230]
 script = ExtResource("1_pl0c8")
+daytime_gradient = SubResource("Gradient_daytime")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=405837827]
+
+[node name="DayTimer" type="Timer" parent="." unique_id=2134710941]
+wait_time = 60.0
+one_shot = true
 
 [node name="DayTransition" type="CanvasLayer" parent="." unique_id=280978192]
 
