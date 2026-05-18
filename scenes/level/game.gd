@@ -41,7 +41,6 @@ func _on_player_seed_use(seed_to_plant: int, pos: Vector2) -> void:
 		plant.setup(seed_to_plant, grid_pos)
 		$Objects/Plants.add_child(plant)
 		plant.position = plant_pos
-		print(grid_pos)
 
 
 func day_night_cycle() -> void:

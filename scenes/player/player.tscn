@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cpedhf6trgf51" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://dpfxibevth7y" path="res://graphics/characters/player_animations.png" id="2_yewv4"]
 [ext_resource type="AudioStream" uid="uid://bxbb5os8ycr5w" path="res://audio/hoe.wav" id="3_gmlin"]
+[ext_resource type="AudioStream" uid="uid://b1sbhvfoqd0u1" path="res://audio/water.ogg" id="4_lvxji"]
+[ext_resource type="AudioStream" uid="uid://dff6xghytlqqh" path="res://audio/step.mp3" id="4_p47bc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
 size = Vector2(14, 13)
@@ -296,7 +298,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -315,7 +317,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("3_gmlin")
 }],
-"times": PackedFloat32Array(0.3)
+"times": PackedFloat32Array(0.4)
 }
 tracks/2/use_blend = true
 
@@ -341,7 +343,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -360,7 +362,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("3_gmlin")
 }],
-"times": PackedFloat32Array(0.3)
+"times": PackedFloat32Array(0.4)
 }
 tracks/2/use_blend = true
 
@@ -386,7 +388,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -405,7 +407,7 @@ tracks/2/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("3_gmlin")
 }],
-"times": PackedFloat32Array(0.3)
+"times": PackedFloat32Array(0.4)
 }
 tracks/2/use_blend = true
 
@@ -431,7 +433,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -445,8 +447,12 @@ tracks/2/path = NodePath("AudioStreamPlayer2D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"clips": [],
-"times": PackedFloat32Array()
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_gmlin")
+}],
+"times": PackedFloat32Array(0.4)
 }
 tracks/2/use_blend = true
 
@@ -534,6 +540,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [2, 3, null, 5]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_p47bc")
+}],
+"times": PackedFloat32Array(0.19999999)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_dyp2m"]
 resource_name = "MOVE_LEFT"
@@ -551,6 +572,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [28, 29, 30, 31]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_p47bc")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_yewv4"]
 resource_name = "move_right"
@@ -568,6 +604,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [54, 55, 56, 57]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_p47bc")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_atpat"]
 resource_name = "move_up"
@@ -585,6 +636,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [80, 81, 82, 83]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_p47bc")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_j8g38"]
 resource_name = "sword_down"
@@ -679,6 +745,21 @@ tracks/1/keys = {
 "method": &"use_tool"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterCanSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lvxji")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_kmyvj"]
 resource_name = "water_left"
@@ -709,6 +790,21 @@ tracks/1/keys = {
 "method": &"use_tool"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterCanSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lvxji")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_a2luo"]
 resource_name = "water_right"
@@ -739,6 +835,21 @@ tracks/1/keys = {
 "method": &"use_tool"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterCanSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lvxji")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_eir2k"]
 resource_name = "water_up"
@@ -769,6 +880,21 @@ tracks/1/keys = {
 "method": &"use_tool"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WaterCanSound")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_lvxji")
+}],
+"times": PackedFloat32Array(0.2)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_atpat"]
 _data = {
@@ -1132,5 +1258,18 @@ position = Vector2(0, -5)
 position = Vector2(0, -3)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=159384485]
+volume_db = -10.0
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="." unique_id=1007292338]
+stream = ExtResource("4_p47bc")
+volume_db = -10.0
+
+[node name="StepSoundTimer" type="Timer" parent="StepSound" unique_id=866793066]
+wait_time = 0.5
+one_shot = true
+
+[node name="WaterCanSound" type="AudioStreamPlayer2D" parent="." unique_id=1892597093]
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="StepSound/StepSoundTimer" to="." method="_on_step_sound_timer_timeout"]

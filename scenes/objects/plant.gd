@@ -26,7 +26,6 @@ func grow(watered: bool):
 	if watered:
 		age = min (age + growth_speed, max_age)
 		$Sprite2D.frame = int(age)
-		print(age)
 
 func _on_gather_area_body_entered(body: Node2D) -> void:
 	if age >= max_age and body.is_in_group("player"):

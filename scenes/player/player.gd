@@ -26,6 +26,10 @@ func _physics_process(_delta: float) -> void:
 		get_input()
 	if direction:
 		last_direction = direction
+		if $StepSound/StepSoundTimer.is_stopped():
+			$StepSound/StepSoundTimer.start()
+	else:
+		$StepSound.stop()
 	velocity = direction * SPEED * int(can_move)
 	move_and_slide()
 	animation()
@@ -43,7 +47,6 @@ func get_input() -> void:
 		current_tool = posmod(current_tool + tool_direction, Tools.size()) as Tools
 	if Input.is_action_just_pressed("seed_toggle"):
 		current_seed = posmod(current_seed + 1, Global.Seeds.size()) as Global.Seeds
-		print(current_seed)
 	if Input.is_action_just_pressed("plant"):
 		plant_seed()
 
@@ -71,3 +74,7 @@ func plant_seed():
 
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
 	can_move = true
+
+
+func _on_step_sound_timer_timeout() -> void:
+	$StepSound.play()
