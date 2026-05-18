@@ -11,7 +11,7 @@ extends Node2D
 var plant_scene := preload("res://scenes/objects/plant.tscn")
 
 func _ready() -> void:
-	$CanvasModulate.color = daytime_gradient.sample(0.0)
+	reset_day_tint()
 	day_timer.timeout.connect(start_day_transition)
 	day_timer.start()
 

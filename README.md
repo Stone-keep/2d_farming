@@ -1,2 +1,3 @@
 # 2d_farming
-Building simple 2D farming game to learn Godot 
+
+Learning Godot using this tutorial by Clear Code: https://www.patreon.com/collection/1774617
