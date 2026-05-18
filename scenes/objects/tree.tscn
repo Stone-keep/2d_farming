@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ba016k6wb5nby" path="res://scenes/objects/tree.gd" id="1_5qchx"]
 [ext_resource type="Texture2D" uid="uid://c4nvxvw1wr0ja" path="res://graphics/tilesets/trees.png" id="1_r6wkp"]
 [ext_resource type="Shader" uid="uid://cjm8qb0n58wwx" path="res://scenes/objects/flash.gdshader" id="2_eogu4"]
+[ext_resource type="AudioStream" uid="uid://dtsnwvwr5w013" path="res://audio/axe.wav" id="4_7yu6v"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5qchx"]
 resource_local_to_scene = true
@@ -26,3 +27,6 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=268211834]
 position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_5qchx")
+
+[node name="GetHitSound" type="AudioStreamPlayer2D" parent="." unique_id=1513487966]
+stream = ExtResource("4_7yu6v")

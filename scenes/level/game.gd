@@ -32,7 +32,6 @@ func _on_player_tool_use(tool: int, pos: Vector2) -> void:
 			soil_water_layer.set_cell(grid_pos, 0, watered_tiles.pick_random())
 			
 
-
 func _on_player_seed_use(seed_to_plant: int, pos: Vector2) -> void:
 	var grid_pos = grass_layer.local_to_map(grass_layer.to_local(pos))
 	var cell = soil_layer.get_cell_tile_data(grid_pos) as TileData
@@ -71,14 +70,17 @@ func day_night_cycle() -> void:
 
 	tween.tween_property($CanvasModulate, "color", Color.WHITE, 10.0)
 
-
 func lock_player_movement() -> void:
 	player.can_move = false
-
+	player.direction = Vector2.ZERO
 
 func unlock_player_movement() -> void:
 	player.can_move = true
 
-
 func level_reset():
-	print("new day")
+	Global.day += 1
+	$DayTransition/Label.text = "Day %s" % Global.day
+	for plant in get_tree().get_nodes_in_group("plants"):
+		plant.grow(plant.grid_position in soil_water_layer.get_used_cells())
+	soil_water_layer.clear()
+	print("Day %s" % Global.day)

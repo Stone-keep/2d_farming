@@ -3,16 +3,25 @@
 [ext_resource type="Script" uid="uid://cxofmapxsjee8" path="res://scenes/objects/plant.gd" id="1_fvfks"]
 [ext_resource type="Texture2D" uid="uid://lcymer2isb2i" path="res://graphics/plants/corn.png" id="1_re4db"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_re4db"]
-size = Vector2(7, 10)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fvfks"]
+radius = 5.0
+height = 18.0
 
-[node name="Plant" type="StaticBody2D" unique_id=1020100607]
+[node name="Plant" type="StaticBody2D" unique_id=532071621 groups=["plants"]]
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_fvfks")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=57179164]
 texture = ExtResource("1_re4db")
 hframes = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1124260299]
-position = Vector2(0, 6)
-shape = SubResource("RectangleShape2D_re4db")
+[node name="GatherArea" type="Area2D" parent="." unique_id=1886918930]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GatherArea" unique_id=575452436]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_fvfks")
+
+[connection signal="body_entered" from="GatherArea" to="." method="_on_gather_area_body_entered"]
